@@ -634,6 +634,13 @@ figure video {
   border: 1px solid var(--border);
 }
 
+figure video {
+  background: #000;
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 figcaption {
   color: var(--muted);
   font-size: 0.88rem;
