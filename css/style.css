@@ -539,38 +539,6 @@ p {
   object-fit: cover;
 }
 
-/* Placeholder banner art until real images are added */
-.ph-cluster {
-  background:
-    radial-gradient(circle at 60% 45%, rgba(244, 246, 248, 0.9) 0%, rgba(157, 177, 191, 0.5) 12%, rgba(14, 47, 76, 0) 45%),
-    radial-gradient(circle at 30% 65%, rgba(228, 197, 138, 0.5) 0%, rgba(14, 47, 76, 0) 30%),
-    radial-gradient(circle at 75% 75%, rgba(157, 177, 191, 0.4) 0%, rgba(14, 47, 76, 0) 25%),
-    #0e2f4c;
-}
-
-.ph-ml {
-  background:
-    linear-gradient(rgba(228, 197, 138, 0.15) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(228, 197, 138, 0.15) 1px, transparent 1px),
-    radial-gradient(circle at 50% 50%, rgba(228, 197, 138, 0.35) 0%, rgba(13, 33, 48, 0) 55%),
-    #0e2f4c;
-  background-size: 28px 28px, 28px 28px, 100% 100%, 100% 100%;
-}
-
-.ph-speech {
-  background:
-    repeating-linear-gradient(
-      90deg,
-      rgba(228, 197, 138, 0.55) 0 3px,
-      transparent 3px 14px
-    ),
-    linear-gradient(180deg, rgba(14, 47, 76, 0.2) 0%, rgba(14, 47, 76, 0.9) 100%),
-    #0e2f4c;
-  background-size: 100% 42%, 100% 100%, 100% 100%;
-  background-position: center, center, center;
-  background-repeat: no-repeat;
-}
-
 /* Talks list */
 .talk-list {
   list-style: none;
