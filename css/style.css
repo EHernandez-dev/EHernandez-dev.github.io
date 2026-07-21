@@ -24,6 +24,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: var(--body-font);
   font-weight: 300;
@@ -174,6 +178,10 @@ nav a.active {
   font-size: 1.02rem;
   margin: 0;
   text-shadow: 0 1px 12px rgba(13, 33, 48, 0.9);
+}
+
+.hero-cta {
+  margin-top: 1.6rem;
 }
 
 .hero-scroll {
