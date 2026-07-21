@@ -594,6 +594,34 @@ p {
   display: block;
 }
 
+/* Key-number strip (project pages) */
+.stat-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  margin: 1.8rem 0;
+}
+
+.stat {
+  flex: 1 1 150px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+}
+
+.stat .num {
+  font-family: var(--heading-font);
+  color: var(--accent);
+  font-size: 1.7rem;
+  display: block;
+}
+
+.stat .lbl {
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
 /* Figures and media */
 figure {
   margin: 1.5rem 0;

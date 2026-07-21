@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulation-Based Inference · Elena Hernández Martínez</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a class="site-title" href="index.html">Elena Hernández Martínez</a>
+      <nav>
+        <a href="index.html">About</a>
+        <a href="projects.html" class="active">Projects</a>
+        <a href="https://scholar.google.com/citations?user=gg4NFnoAAAAJ" target="_blank" rel="noopener">Publications</a>
+        <a href="talks.html">Talks</a>
+        <a href="cv.html">C.V.</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <h1>Simulation-Based Inference</h1>
+      <p class="subtitle">Teaching neural networks to read cosmology from galaxy clusters</p>
+
+      <p>
+        Galaxy clusters are the largest gravitationally bound structures in the universe, and
+        everything about them, from how their gas glows in X-rays to how they bend the cosmic
+        microwave background, carries information about the cosmology they grew in. The catch:
+        that signal is entangled with messy astrophysics. Feedback from active galactic nuclei,
+        supernovae, and star formation reshapes a cluster from the inside, and disentangling
+        "how the universe works" from "how the cluster's own physics works" is one of the
+        central challenges of precision cosmology.
+      </p>
+
+      <h2>From cluster profiles to 28 parameters</h2>
+      <p>
+        In <a href="https://arxiv.org/abs/2410.10942" target="_blank" rel="noopener">Hernández-Martínez et al. (2024)</a>,
+        I led a study showing just how much of that entangled information can be recovered. Using
+        the CAMELS-zoomGZ simulation suite, we stacked galaxy cluster profiles of five
+        observable properties: X-ray surface brightness, gas density, temperature, metallicity,
+        and the Compton-y signal. We then trained neural networks to invert them, inferring
+        every single one of the 28 cosmological and astrophysical parameters of the
+        IllustrisTNG model at once.
+      </p>
+
+      <div class="stat-row">
+        <div class="stat">
+          <span class="num">28</span>
+          <span class="lbl">parameters inferred simultaneously from stacked profiles</span>
+        </div>
+        <div class="stat">
+          <span class="num">r ≥ 0.97</span>
+          <span class="lbl">correlation for all cosmological parameters, including Ω<sub>m</sub>, H<sub>0</sub>, and σ<sub>8</sub></span>
+        </div>
+        <div class="stat">
+          <span class="num">S/N 2.5</span>
+          <span class="lbl">noise level at which key parameters still remain recoverable</span>
+        </div>
+      </div>
+
+      <figure>
+        <img src="assets/sbi-inference-grid.jpg" alt="Grid of 28 panels comparing neural network predictions against true parameter values, each showing a tight one-to-one relation">
+        <figcaption>
+          Neural network predictions against true values for all 28 IllustrisTNG parameters,
+          inferred from stacked cluster profiles. Every panel hugs the one-to-one line: the
+          cosmology is recovered with correlations of 0.97 and above, and the astrophysics
+          above 0.90.
+        </figcaption>
+      </figure>
+
+      <p>
+        Real observations never hand you a perfect profile, so we stress-tested the approach
+        against reality. Restricting profiles to radial ranges between 0.1 and 0.7 R<sub>200c</sub>,
+        mimicking what current instruments actually resolve, and injecting up to 40% Gaussian
+        noise (signal-to-noise ratios as low as 2.5) degrades the inference far less than one
+        might fear: key parameters such as Ω<sub>m</sub>, H<sub>0</sub>, and the stellar
+        initial mass function slope remain robust even under extreme noise. We also found that
+        full radial profiles consistently beat integrated quantities, which means the shape of
+        a cluster's profile, not just its total signal, is doing real cosmological work.
+      </p>
+
+      <p>
+        <a class="button" href="https://arxiv.org/abs/2410.10942" target="_blank" rel="noopener">Read the paper on arXiv</a>
+      </p>
+      <p>
+        <em>Cosmological and Astrophysical Parameter Inference from Stacked Galaxy Cluster
+        Profiles Using CAMELS-zoomGZ</em>, E. Hernández-Martínez, S. Genel,
+        F. Villaescusa-Navarro, U. P. Steinwandel, M. E. Lee, E. T. Lau, and D. N. Spergel,
+        submitted to ApJ.
+      </p>
+
+      <h2>The CAMELS connection</h2>
+
+      <figure>
+        <img src="assets/ml-cluster.jpg" alt="Volume rendering of a simulated galaxy cluster embedded in the cosmic web">
+        <figcaption>A simulated galaxy cluster embedded in its cosmic web environment.</figcaption>
+      </figure>
+
+      <p>
+        This work lives inside <a href="https://www.camel-simulations.org" target="_blank" rel="noopener">CAMELS</a>
+        (Cosmology and Astrophysics with MachinE Learning Simulations), a suite of thousands of
+        simulated universes in which cosmology and astrophysics are varied systematically,
+        built precisely so that machine learning models can learn to tell the two apart. Beyond
+        using CAMELS, I contribute to growing it: I run simulations with the Magneticum galaxy
+        formation model, adding an independent physics implementation to the suite so that
+        inference methods like the one above can be tested for robustness across models, not
+        just within one.
+      </p>
+      <p>
+        <a class="button" href="https://www.camel-simulations.org" target="_blank" rel="noopener">Explore CAMELS</a>
+      </p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <span>© 2026 Elena Hernández Martínez</span>
+      <div class="social-links">
+        <a href="https://github.com/EHernandez-dev" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/elenahernandezmartinez" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:e.hernandez@appliedai-institute.de">Email</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
