@@ -5,54 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Likelihood-Free Inference · Elena Hernández Martínez</title>
   <link rel="stylesheet" href="css/style.css">
-  <!-- PROTOTYPE: three placements for the YouTube talk, switch via floating bar
-       or arrow keys (?variant=A|B|C). Delete losers and switcher when one wins. -->
-  <style>
-    .video-embed {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      background: #000;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      overflow: hidden;
-    }
-    .video-embed iframe {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-    .proto-hidden { display: none !important; }
-    #proto-switcher {
-      position: fixed;
-      bottom: 1.2rem;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      align-items: center;
-      gap: 0.9rem;
-      background: #fff;
-      color: #111;
-      border-radius: 999px;
-      padding: 0.5rem 1rem;
-      font-family: monospace;
-      font-size: 0.9rem;
-      box-shadow: 0 4px 18px rgba(0,0,0,0.45);
-      z-index: 1000;
-    }
-    #proto-switcher button {
-      border: none;
-      background: #111;
-      color: #fff;
-      border-radius: 50%;
-      width: 26px;
-      height: 26px;
-      cursor: pointer;
-      font-size: 0.9rem;
-    }
-  </style>
 </head>
 <body>
   <header>
@@ -132,22 +84,15 @@
 
       <p>
         <a class="button" href="https://arxiv.org/abs/2410.10942" target="_blank" rel="noopener">Read the paper on arXiv</a>
-        <a class="button" id="opt-A" href="https://www.youtube.com/watch?v=7gWsV9hdQCc" target="_blank" rel="noopener">Watch the presentation</a>
+        <a class="button" href="https://www.youtube.com/watch?v=7gWsV9hdQCc" target="_blank" rel="noopener">Watch the presentation</a>
       </p>
       <p>
         <em>Cosmological and Astrophysical Parameter Inference from Stacked Galaxy Cluster
         Profiles Using CAMELS-zoomGZ</em>, E. Hernández-Martínez, S. Genel,
         F. Villaescusa-Navarro, U. P. Steinwandel, M. E. Lee, E. T. Lau, and D. N. Spergel,
-        <a href="https://iopscience.iop.org/article/10.3847/1538-4357/ada9e9" target="_blank" rel="noopener">The Astrophysical Journal, 981, 170 (2025)</a>.<span id="opt-C"> ·
-        <a href="https://www.youtube.com/watch?v=7gWsV9hdQCc" target="_blank" rel="noopener">recording of the talk</a></span>
+        <a href="https://iopscience.iop.org/article/10.3847/1538-4357/ada9e9" target="_blank" rel="noopener">The Astrophysical Journal, 981, 170 (2025)</a>.
       </p>
 
-      <div id="opt-B">
-        <h2>The talk</h2>
-        <figure>
-          <div class="video-embed">
-            <iframe src="https://www.youtube-nocookie.com/embed/7gWsV9hdQCc" title="Presentation: Likelihood-Free Inference on Cosmological Data" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-          </div>
           <figcaption>A recorded presentation of this work.</figcaption>
         </figure>
       </div>
@@ -191,46 +136,5 @@
       </div>
     </div>
   </footer>
-  <!-- Floating prototype switcher: delete when a variant wins -->
-  <div id="proto-switcher">
-    <button id="proto-prev" aria-label="Previous option">←</button>
-    <span id="proto-label"></span>
-    <button id="proto-next" aria-label="Next option">→</button>
-  </div>
-  <script>
-    (function () {
-      var variants = ['B', 'A', 'C'];
-      var names = { A: 'Button next to arXiv', B: 'Embedded player', C: 'Link in citation' };
-
-      function current() {
-        var v = new URLSearchParams(location.search).get('variant');
-        return variants.indexOf(v) >= 0 ? v : 'B';
-      }
-
-      function show(v) {
-        document.getElementById('opt-A').classList.toggle('proto-hidden', v !== 'A');
-        document.getElementById('opt-B').classList.toggle('proto-hidden', v !== 'B');
-        document.getElementById('opt-C').classList.toggle('proto-hidden', v !== 'C');
-        document.getElementById('proto-label').textContent = v + ' — ' + names[v];
-        var url = new URL(location.href);
-        url.searchParams.set('variant', v);
-        history.replaceState(null, '', url);
-      }
-
-      function cycle(dir) {
-        var i = (variants.indexOf(current()) + dir + variants.length) % variants.length;
-        show(variants[i]);
-      }
-
-      document.getElementById('proto-prev').addEventListener('click', function () { cycle(-1); });
-      document.getElementById('proto-next').addEventListener('click', function () { cycle(1); });
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'ArrowLeft') cycle(-1);
-        if (e.key === 'ArrowRight') cycle(1);
-      });
-
-      show(current());
-    })();
-  </script>
 </body>
 </html>
